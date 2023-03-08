@@ -1,0 +1,48 @@
+
+.orders{
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
+
+    .container{
+        width: 1100px;
+        padding: 50px 0px;
+
+        .title{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+
+        table{
+            width: 100%;
+
+            tr{
+                height: 50px;
+
+                th{
+                   text-align: left;
+                }
+
+                td{
+                    .img{
+                        padding: 5px 0px 0px 9px;
+                        width: 50px;
+                        height: 40px;
+                        object-fit: cover;
+                    }
+
+                    .delete{
+                        width: 20px;
+                        cursor: pointer;
+                    }
+                }
+
+                &:nth-child(even){
+                    background-color: #1dbf730f;
+                }
+            }
+        }
+    }
+}
