@@ -5,6 +5,8 @@ import Review from "../review/Review";
 import "./Reviews.scss";
 const Reviews = ({ gigId }) => {
 
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   const queryClient = useQueryClient()
   const { isLoading, error, data } = useQuery({
     queryKey: ["reviews"],
@@ -41,7 +43,8 @@ const Reviews = ({ gigId }) => {
                 : data.map((review) => <Review key={review._id} review={review} />
             )}
         </div>
-        <div className="add">
+        {currentUser ?
+          <div className="add">
             <h3>Add a review</h3>
             <form action="" className="addForm" onSubmit={handleSubmit}>
                 <input type="text" placeholder="write your opinion" />
@@ -54,7 +57,9 @@ const Reviews = ({ gigId }) => {
                 </select>
                 <button>Send</button>
             </form>
-        </div>
+         </div>
+         : ""
+         }
     </div>
   );
 };

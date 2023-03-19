@@ -11,8 +11,6 @@ import UserImg from './../../images/user.png'
 
 const GigCard = ({item}) => {
 
-    console.log(item._id);
-
     const { isLoading, error, data } = useQuery({
         queryKey: [item.userId],
         queryFn: () =>

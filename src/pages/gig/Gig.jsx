@@ -17,6 +17,8 @@ const Gig = () => {
 
   const { id } = useParams();
 
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   const { isLoading, error, data } = useQuery({
      queryKey: ["gig"],
      queryFn: () =>
@@ -164,7 +166,7 @@ const Gig = () => {
                             </div>
                        ))}
                    </div>
-                   <Link to={`/pay/${id}`} className="link">
+                   <Link to={ currentUser ? `/pay/${id}` : `/login`} className="link">
                       <button>Continue</button>
                    </Link>
               </div>
